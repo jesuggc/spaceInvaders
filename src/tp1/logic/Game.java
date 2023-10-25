@@ -24,6 +24,10 @@ public class Game {
 		cycle++;
 	}
 
+	public boolean moveShip (Move toDirection){
+		return ucmShip.move(toDirection);
+	}
+	
 	public String stateToString() {
 		//TODO fill your code
 		return null;

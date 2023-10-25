@@ -48,7 +48,11 @@ public class Controller {
 					printGame();
 					break;
 				case "r":
-
+					game.moveShip(Move.RIGHT);
+					game.update();
+					printGame();
+					break;
+					
 			}
 		}
 		//Game.update()?
