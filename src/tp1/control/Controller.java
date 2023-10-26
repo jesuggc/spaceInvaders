@@ -44,11 +44,16 @@ public class Controller {
 			// prompt();
 			switch(prompt()[0]){
 				case "n":
-					game.update();
+					game.update(); 
 					printGame();
 					break;
 				case "r":
 					game.moveShip(Move.RIGHT);
+					game.update();
+					printGame();
+					break;
+				case "l":
+					game.moveShip(Move.LEFT);
 					game.update();
 					printGame();
 					break;

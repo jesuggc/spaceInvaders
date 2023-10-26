@@ -7,13 +7,13 @@ package tp1.logic;
  */
 public class Position {
 
-	private int col;
 	private int row;
+	private int col;
 
 	//TODO fill your code
-	public Position(int col, int row) {
-		this.col = col;
+	public Position(int row, int col) {
 		this.row = row;
+		this.col = col;
 	}
 	
 	public int getCol() {

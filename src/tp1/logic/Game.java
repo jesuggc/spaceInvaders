@@ -22,6 +22,7 @@ public class Game {
 
 	public void update() {
 		cycle++;
+		// moveLaser();
 	}
 
 	public boolean moveShip (Move toDirection){
