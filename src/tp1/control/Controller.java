@@ -42,21 +42,36 @@ public class Controller {
 		printGame();
 		while(!game.playerWin() && !game.aliensWin()) {
 			// prompt();
-			switch(prompt()[0]){
+			String[] words = prompt();
+			switch(words[0]){
 				case "n":
+				case "none":
+				case "":
 					game.update(); 
 					printGame();
 					break;
-				case "r":
-					game.moveShip(Move.RIGHT);
-					game.update();
-					printGame();
+				// case "right":
+				case "m":
+				case "move":
+					if(game.moveShip(Move.parse(words[1]))){
+						game.update();
+						printGame();
+					}
+					else System.out.println("Movement cannot be performed");
+
 					break;
-				case "l":
-					game.moveShip(Move.LEFT);
-					game.update();
-					printGame();
+				case "s":
+					if(game.shootLaser()){
+						game.update();
+						printGame();
+					}
+					else System.out.println("Laser cannot be shot");
+
 					break;
+				case "h":
+					System.out.println(Messages.HELP_LINES);
+					break;
+
 					
 			}
 		}

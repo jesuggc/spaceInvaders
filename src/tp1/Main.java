@@ -22,8 +22,7 @@ public class Main {
 	}
 
 	/**
-	 * SpaceInvaders entry point
-	 * 
+	 * SpaceInvaders entry point 
 	 * @param args Arguments for the game.
 	 */
 	public static void main(String[] args) {

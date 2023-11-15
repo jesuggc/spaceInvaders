@@ -23,6 +23,15 @@ public enum Move {
 		return y;
 	}
 
+	public static Move parse(String move) {
+		if(move.equals("left")) return LEFT;
+		else if(move.equals("right")) return RIGHT;
+		else if(move.equals("lleft")) return LLEFT;
+		else if(move.equals("rright")) return RRIGHT;
+		else if(move.equals("down")) return DOWN;
+		else if(move.equals("up")) return UP;
+		return null;
+	}
 
 	//TODO fill your code
 	
