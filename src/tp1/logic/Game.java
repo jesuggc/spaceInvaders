@@ -1,6 +1,8 @@
 package tp1.logic;
 
 import java.util.Random;
+
+import tp1.logic.gameobjects.UCMLaser;
 import tp1.logic.gameobjects.UCMShip;;
 
 // TODO implementarlo
@@ -10,7 +12,10 @@ public class Game {
 	public static final int DIM_Y = 8;
 	public static final int INITIAL_COL = 4;
 	public static final int INITIAL_ROW = 7;
+	public static final int INITIAL_LASER_ROW = 7;
+
 	private UCMShip ucmShip;
+	private UCMLaser laser;
 	private Position initialShipPosition = new Position(INITIAL_COL, INITIAL_ROW);
 	private int cycle = 0;
 
@@ -23,7 +28,11 @@ public class Game {
 
 	public void update() {
 		cycle++;
-		// moveLaser();
+		laserAutomaticMove();
+	}
+
+	private void laserAutomaticMove() {
+		laser.automaticMove();
 	}
 
 	public boolean moveShip(Move toDirection) {
@@ -36,7 +45,11 @@ public class Game {
 	}
 
 	public boolean shootLaser() {
-		return (this.ucmShip.shootLaser());
+		if(this.ucmShip.shootLaser()){
+			this.laser = new UCMLaser(this, this.ucmShip.getPosition());
+			return true;
+		}
+		else return false;
 	}
 
 	public int getCycle() {

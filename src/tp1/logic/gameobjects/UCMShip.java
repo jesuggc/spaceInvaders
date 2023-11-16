@@ -9,6 +9,7 @@ public class UCMShip {
     private int damage = 1;
     private Position position;
     private Game game;
+    private boolean canShoot = true;
 
     public UCMShip(Game game, Position position) {
         this.position = position;
@@ -33,6 +34,10 @@ public class UCMShip {
     }
 
     public boolean shootLaser() {
+        if(canShoot){
+            canShoot = false;
+            return true;
+        } 
         return false;
     }
 

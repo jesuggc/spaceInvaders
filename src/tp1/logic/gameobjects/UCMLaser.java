@@ -14,7 +14,12 @@ public class UCMLaser {
 	//TODO fill your code
 	private Move dir;
 	private Game game;
+	private Position position;
 
+	public UCMLaser (Game game, Position position) {
+		this.game = game;
+		this.position = position;
+	}
 
 	/**
 	 *  Method called when the laser disappears from the board

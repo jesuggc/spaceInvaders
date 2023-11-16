@@ -17,6 +17,7 @@ public class Controller {
 	private Game game;
 	private Scanner scanner;
 	private GamePrinter printer;
+	private boolean endByPlayer = false;
 
 	public Controller(Game game, Scanner scanner) {
 		this.game = game;
@@ -40,7 +41,7 @@ public class Controller {
 	public void run() {
 		//TODO fill your code
 		printGame();
-		while(!game.playerWin() && !game.aliensWin()) {
+		while(!game.playerWin() && !game.aliensWin() && !endByPlayer) {
 			// prompt();
 			String[] words = prompt();
 			switch(words[0]){
@@ -69,25 +70,32 @@ public class Controller {
 
 					break;
 				case "h":
-					System.out.println(Messages.HELP_LINES);
-					break;
+				case "help":
+					printHelp();
+				break;
+				case "e":
+				case "exit":
+					endByPlayer = true;
+					System.out.println("Players leaves the game");
+				break;
 
 					
 			}
 		}
 		//Game.update()?
 	}
+	private void printHelp() {
+		String[] help = Messages.HELP_LINES;
+		for (int i=0; i<help.length; i++) {
+			System.out.println(help[i]);
 
-	/**
-	 * Draw / paint the game
-	 */
+		}
+	}
+	
 	private void printGame() {
 		System.out.println(printer);
 	}
 	
-	/**
-	 * Prints the final message once the game is finished
-	 */
 	public void printEndMessage() {
 		System.out.println(printer.endMessage());
 	}
